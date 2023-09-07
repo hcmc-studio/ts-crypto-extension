@@ -48,9 +48,18 @@ export namespace RSA {
 }
 
 export namespace SHA {
-    export function sha512(plain: string, salt: string, paddingLength: number): string {
+    export type HashConfig = {
+        salt: string
+        paddingLength: number
+        padChar: number
+    }
+
+    export function sha512(plain: string, config?: Partial<HashConfig>): string {
+        const salt = config?.salt ?? ''
+        const paddingLength = config?.paddingLength ?? 0
+        const padChar = config?.padChar ?? 80
         let m = plain + salt
-        m += Crypto.generatePadding(paddingLength - m.length, 65)
+        m += Crypto.generatePadding(Math.max(paddingLength - m.length, 0), padChar)
 
         return js_sha512(m)
     }

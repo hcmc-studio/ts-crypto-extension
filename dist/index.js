@@ -48,9 +48,12 @@ export var RSA;
 })(RSA || (RSA = {}));
 export var SHA;
 (function (SHA) {
-    function sha512(plain, salt, paddingLength) {
+    function sha512(plain, config) {
+        const salt = config?.salt ?? '';
+        const paddingLength = config?.paddingLength ?? 0;
+        const padChar = config?.padChar ?? 80;
         let m = plain + salt;
-        m += Crypto.generatePadding(paddingLength - m.length, 65);
+        m += Crypto.generatePadding(Math.max(paddingLength - m.length, 0), padChar);
         return js_sha512(m);
     }
     SHA.sha512 = sha512;

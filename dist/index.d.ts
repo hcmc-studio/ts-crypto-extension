@@ -6,5 +6,10 @@ export declare namespace RSA {
     function encrypt(plain: string, publicKey: string): string;
 }
 export declare namespace SHA {
-    function sha512(plain: string, salt: string, paddingLength: number): string;
+    type HashConfig = {
+        salt: string;
+        paddingLength: number;
+        padChar: number;
+    };
+    function sha512(plain: string, config?: Partial<HashConfig>): string;
 }
