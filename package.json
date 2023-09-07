@@ -1,0 +1,17 @@
+{
+  "name": "ts-type-extension",
+  "version": "0.0.48",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "js-sha512": "^0.8.0",
+    "jsencrypt": "^3.3.2",
+    "typescript": "^5.2.2"
+  }
+}
