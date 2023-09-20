@@ -1,14 +1,14 @@
 {
   "name": "ts-crypto-extension",
-  "version": "0.0.52",
-  "hcmcExtensionVersion": "0.0.51",
+  "version": "0.0.53",
+  "hcmcExtensionVersion": "0.0.52",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json",
-    "push": "npm run build && ../bin/push 0.0.52 ts-crypto-extension"
+    "push": "npm install && npm run build && ../bin/push 0.0.53 ts-crypto-extension"
   },
   "license": "MIT",
   "devDependencies": {
